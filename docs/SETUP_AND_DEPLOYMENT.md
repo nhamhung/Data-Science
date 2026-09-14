@@ -114,14 +114,15 @@ Generate a Kaggle submission:
 python scripts/make_submission.py
 ```
 
-Render the HTML report after installing Quarto:
+Render both the HTML and PDF reports after installing Quarto and TinyTeX:
 
 ```bash
-quarto render report/report.qmd --to html
+quarto install tinytex
+quarto render report/report.qmd
 ```
 
-The output is `report/report.html` and remains ignored because GitHub Pages
-renders it in automation.
+The outputs are `report/report.html` and `report/report.pdf`. Both remain
+ignored because GitHub Pages renders them in automation.
 
 ## 5. Run with Docker
 
@@ -212,28 +213,30 @@ that the token is current and its owner has accepted the competition rules.
 ## 9. Publish the Quarto report with GitHub Pages
 
 The workflow at `.github/workflows/publish-academic-report.yml` downloads the
-private competition data during the build, renders only HTML, and deploys that
-HTML to GitHub Pages. No dataset is committed.
+private competition data during the build, renders HTML and PDF, and deploys
+both to GitHub Pages. The HTML page links to `report.pdf` under **Other
+Formats**. No dataset is committed.
 
 After creating the GitHub repository:
 
 1. Open **Settings → Secrets and variables → Actions**.
 2. Create a repository secret named `KAGGLE_API_TOKEN`.
 3. Open **Settings → Pages** and select **GitHub Actions** as the source.
-4. Open **Actions → Publish Academic Success report → Run workflow**.
+4. Open **Actions → Publish Academic Success report → Run workflow** for the
+   first deployment.
 5. After the workflow succeeds, use the URL shown in the deployment job or in
    **Settings → Pages**.
 
-The report workflow is manual so the first repository push does not fail
-before the Kaggle secret and GitHub Pages are configured. Run it again whenever
-the report changes.
+The report workflow can be run manually and also runs automatically when the
+report, its dependencies, the shared source package, or the workflow changes
+on `main`.
 
 ## 10. Updating deployments
 
 - Streamlit Community Cloud rebuilds the app after changes are pushed to its
   configured branch.
-- Run the report workflow again after changing `report.qmd`, report
-  dependencies, or shared feature code.
+- Report and shared-code changes on `main` automatically run the GitHub Pages
+  workflow; it can also be started manually from the Actions tab.
 - If the feature pipeline changes, retrain and commit the updated
   `models/model.joblib` alongside the code change.
 - Roll back either deployment by reverting the responsible commit on `main`

@@ -28,7 +28,7 @@ execute:
   echo: true
   warning: false
   message: false
-jupyter: python3
+jupyter: academic-success
 ---
 
 ```{python}
@@ -85,6 +85,38 @@ The dataset has one row per student and roughly three groups of features:
   and average grade, separately for the 1st and 2nd semester.
 - **Macroeconomic context** — unemployment rate, inflation rate, and GDP at
   the time of enrollment.
+
+### What "1st sem" / "2nd sem" actually cover, and why that's enough
+
+Each semester field breaks down as follows:
+
+| Field | Meaning |
+|---|---|
+| `credited` | Units credited without an exam (transfer credit, exemptions, prior qualifications) |
+| `enrolled` | Units the student registered for that semester |
+| `evaluations` | Number of evaluation instances (exams/assessments) undergone |
+| `approved` | Units passed |
+| `grade` | Average grade across that semester's evaluated units |
+| `without evaluations` | Units enrolled in but never evaluated — disengagement, distinct from being evaluated *and* failing |
+
+"1st sem"/"2nd sem" here means the student's **first academic year** —
+Portuguese degree programs typically run 3+ years, and the target
+(Dropout/Enrolled/Graduate) is recorded at the end of the program's normal
+duration, years later. Predicting a multi-year outcome from only the first
+year's data is not a limitation of this dataset — it *is* the point.
+
+This reflects a real, well-studied use case: **early-warning dropout
+prediction**. An institution doesn't want to wait until year 3 to notice a
+student is at risk — by then it's often too late to intervene financially,
+academically, or administratively. The actionable question is: *using only
+what's known from admission plus the first year, can at-risk students be
+flagged early enough to actually help them?* That framing is also why this
+project's strongest engineered features — `approval_rate_1st_sem`/
+`approval_rate_2nd_sem` and `grade_trend` — matter so much: a student's
+*trajectory* within that first year (improving vs. declining, engaged vs.
+disengaging) is a meaningful early signal for what happens over the
+following years, even though the model never observes those later years
+directly. The SHAP results below confirm this empirically.
 
 Most "categorical" fields arrive as integer codes (see the UCI documentation
 for the legend) rather than as strings — a common data-cleaning trap, since

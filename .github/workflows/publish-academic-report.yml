@@ -1,6 +1,13 @@
 name: Publish Academic Success report
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/publish-academic-report.yml"
+      - "projects/academic_success/report/**"
+      - "projects/academic_success/src/**"
   workflow_dispatch:
 
 permissions:
@@ -28,9 +35,14 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
 
       - name: Install report dependencies
         run: python -m pip install -r projects/academic_success/report/requirements.txt
+
+      - name: Register report kernel
+        run: python -m ipykernel install --user --name academic-success --display-name "Python (academic-success)"
 
       - name: Download Kaggle training data
         env:
@@ -38,13 +50,20 @@ jobs:
           PYTHONPATH: projects/academic_success/src
         run: python -c "from academic_success.data import download_train; print(download_train())"
 
-      - name: Render HTML report
-        run: quarto render projects/academic_success/report/report.qmd --to html
+      - name: Render HTML and PDF reports
+        run: quarto render projects/academic_success/report/report.qmd
+
+      - name: Verify report artifacts
+        run: |
+          test -s projects/academic_success/report/report.html
+          test -s projects/academic_success/report/report.pdf
+          grep -q 'href="report.pdf"' projects/academic_success/report/report.html
 
       - name: Prepare Pages site
         run: |
           mkdir -p _site
           cp projects/academic_success/report/report.html _site/index.html
+          cp projects/academic_success/report/report.pdf _site/report.pdf
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

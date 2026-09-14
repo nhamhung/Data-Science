@@ -146,9 +146,10 @@ complete deployment procedure.
 
 ## Publish the report
 
-The Quarto report can be rendered and deployed to GitHub Pages by the manual
-`Publish Academic Success report` GitHub Actions workflow. It also uses the
-repository's `KAGGLE_API_TOKEN` Actions secret; no raw data is published.
+The Quarto report is rendered as HTML and PDF and deployed to GitHub Pages by
+the `Publish Academic Success report` GitHub Actions workflow. The HTML page's
+**Other Formats** section links to the published PDF. The workflow also uses
+the repository's `KAGGLE_API_TOKEN` Actions secret; no raw data is published.
 
 ## Render the research writeup
 
