@@ -1,4 +1,4 @@
-name: Publish Academic Success report
+name: Publish portfolio reports
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
       - ".github/workflows/publish-academic-report.yml"
       - "projects/academic_success/report/**"
       - "projects/academic_success/src/**"
+      - "projects/recommendation_showcase/report/**"
   workflow_dispatch:
 
 permissions:
@@ -58,12 +59,17 @@ jobs:
           test -s projects/academic_success/report/report.html
           test -s projects/academic_success/report/report.pdf
           grep -q 'href="report.pdf"' projects/academic_success/report/report.html
+          test -s projects/recommendation_showcase/report/report.html
+          test -s projects/recommendation_showcase/report/report.pdf
+          grep -q 'href="report.pdf"' projects/recommendation_showcase/report/report.html
 
       - name: Prepare Pages site
         run: |
-          mkdir -p _site
+          mkdir -p _site/recommendation_showcase
           cp projects/academic_success/report/report.html _site/index.html
           cp projects/academic_success/report/report.pdf _site/report.pdf
+          cp projects/recommendation_showcase/report/report.html _site/recommendation_showcase/index.html
+          cp projects/recommendation_showcase/report/report.pdf _site/recommendation_showcase/report.pdf
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

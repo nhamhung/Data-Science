@@ -99,3 +99,6 @@ venv/
 **/.streamlit/secrets.toml
 **/kaggle.json
 **/access_token
+
+# Local handoff archive; the extracted project under projects/ is versioned.
+/projects/recommendation_showcase_portable.zip
