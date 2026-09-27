@@ -72,7 +72,8 @@ def get_coll_members_df() -> pd.DataFrame:
 
 @st.cache_data(show_spinner="Loading a training sample (first load only)...")
 def get_coll_train_sample(n: int = COLL_SWEEP_SAMPLE_SIZE) -> pd.DataFrame:
-    train = coll_data.load_train().sample(n, random_state=coll_config.RANDOM_SEED)
+    full_train = coll_data.load_train()
+    train = full_train.sample(min(n, len(full_train)), random_state=coll_config.RANDOM_SEED)
     return coll_data.merge_side_tables(train)
 
 

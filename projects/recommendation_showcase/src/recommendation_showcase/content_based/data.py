@@ -24,6 +24,17 @@ def _require_file(path: Path) -> Path:
     return path
 
 
+def _tracks_path() -> Path:
+    """Prefer the full local catalog, falling back to the hosted demo sample."""
+    if config.TRACKS_CSV.exists():
+        return config.TRACKS_CSV
+    return _require_file(config.DEMO_TRACKS_CSV)
+
+
+def using_demo_data() -> bool:
+    return not config.TRACKS_CSV.exists() and config.DEMO_TRACKS_CSV.exists()
+
+
 def load_tracks() -> pd.DataFrame:
     """Load the full tracks table, deduplicated and indexed by `track_id`.
 
@@ -33,7 +44,7 @@ def load_tracks() -> pd.DataFrame:
     kept, since the recommender treats each track as a single point in
     feature space regardless of which genre tag happened to be attached.
     """
-    df = pd.read_csv(_require_file(config.TRACKS_CSV))
+    df = pd.read_csv(_tracks_path())
     df = df.drop(columns=[c for c in df.columns if c.startswith("Unnamed")], errors="ignore")
     df = df.drop_duplicates(subset=config.ID_COL, keep="first")
     return df.set_index(config.ID_COL)

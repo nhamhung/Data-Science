@@ -31,8 +31,19 @@ def _require_file(path: Path) -> Path:
     return path
 
 
+def _full_or_demo_path(full_path: Path, demo_path: Path) -> Path:
+    """Prefer full local data, falling back to the compact hosted demo."""
+    if full_path.exists():
+        return full_path
+    return _require_file(demo_path)
+
+
+def using_demo_data() -> bool:
+    return not config.TRAIN_CSV.exists() and config.DEMO_TRAIN_CSV.exists()
+
+
 def load_train() -> pd.DataFrame:
-    return pd.read_csv(_require_file(config.TRAIN_CSV))
+    return pd.read_csv(_full_or_demo_path(config.TRAIN_CSV, config.DEMO_TRAIN_CSV))
 
 
 def load_test() -> pd.DataFrame:
@@ -40,15 +51,20 @@ def load_test() -> pd.DataFrame:
 
 
 def load_songs() -> pd.DataFrame:
-    return pd.read_csv(_require_file(config.SONGS_CSV))
+    return pd.read_csv(
+        _full_or_demo_path(config.SONGS_CSV, config.DEMO_SONGS_CSV),
+        dtype={"genre_ids": "string"},
+    )
 
 
 def load_members() -> pd.DataFrame:
-    return pd.read_csv(_require_file(config.MEMBERS_CSV))
+    return pd.read_csv(_full_or_demo_path(config.MEMBERS_CSV, config.DEMO_MEMBERS_CSV))
 
 
 def load_song_extra_info() -> pd.DataFrame:
-    return pd.read_csv(_require_file(config.SONG_EXTRA_INFO_CSV))
+    return pd.read_csv(
+        _full_or_demo_path(config.SONG_EXTRA_INFO_CSV, config.DEMO_SONG_EXTRA_INFO_CSV)
+    )
 
 
 def merge_side_tables(
