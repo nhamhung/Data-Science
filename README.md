@@ -1,76 +1,49 @@
 # Data Science Portfolio
 
-An end-to-end data science portfolio project built from a Kaggle competition.
-It includes reusable model code, tests, a notebook, a Streamlit application,
-and a Quarto research report.
+Five worked, end-to-end data science projects, each built around a real
+public dataset/competition and designed for people who've completed the
+relevant Kaggle Learn microcourses — one project per major skill area
+(tabular ML, NLP, time-series forecasting, recommendation, real-world
+traffic safety). The recommendation project itself covers both major
+techniques — content-based and collaborative filtering — built and
+compared head to head in one place.
 
-## Included project
+Each project is fully self-contained: its own virtual environment, its own
+notebook(s), Streamlit app, Quarto research writeup, and a script proving
+the model works end-to-end, sharing nothing with the others except this
+top-level structure.
 
-| Project | Problem | Deliverables |
-|---|---|---|
-| [Academic Success](projects/academic_success/README.md) | Predict Dropout, Enrolled, or Graduate outcomes | Notebook, trained model, Streamlit app, Quarto report, submission script |
+## Projects
 
-## Quick start
+| Project | Problem | Report | Streamlit |
+|---|---|---|---|
+| [Academic Success](https://github.com/nhamhhung/academic-success) | Predict student Dropout/Enrolled/Graduate outcomes (tabular classification) — Kaggle Playground Series S4E6 | [Report](https://nhamhhung.github.io/academic-success/) | [App](https://academic-success.streamlit.app) |
+| [Disaster Tweets NLP](https://github.com/nhamhhung/disaster-tweets-nlp) | Classify whether a tweet describes a real disaster (NLP / text classification) | [Report](https://nhamhhung.github.io/disaster-tweets-nlp/) | [App](https://disaster-tweets-nlp.streamlit.app) |
+| [Energy Demand Forecasting](https://github.com/nhamhhung/energy-demand-forecasting) | Forecast hourly electricity demand, including recursive multi-step forecasting | [Report](https://nhamhhung.github.io/energy-demand-forecasting/) | [App](https://energy-demand-forecasting.streamlit.app) |
+| [Recommendation Showcase](https://github.com/nhamhhung/recommendation-showcase) | Compare content-based and collaborative-filtering music recommendations | [Report](https://nhamhhung.github.io/recommendation-showcase/) | [App](https://recommendation-showcase.streamlit.app) |
+| [Traffic Accident Severity](https://github.com/nhamhhung/traffic-accident-severity) | Predict severe vs. non-severe accidents from Addis Ababa police records | [Report](https://nhamhhung.github.io/traffic-accident-severity/) | [App](https://traffic-accident-severity.streamlit.app) |
 
-Python 3.12 is recommended.
+## Working on a project
+
+See [`DEVELOPER_GUIDE.md`](DEVELOPER_GUIDE.md) for how to clone any one of
+the five independent repositories and edit its model code, notebook, or report.
+
+Each repository has its own `README.md` with full setup and fork-deployment
+instructions. In general:
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd <YOUR_REPOSITORY_DIRECTORY>/projects/academic_success
-
+git clone https://github.com/nhamhhung/<project-name>.git
+cd <project-name>
 python3.12 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-Download the competition files after accepting the
-[Kaggle competition rules](https://www.kaggle.com/competitions/playground-series-s4e6/rules):
+Then follow that project's README for how to get its data, run its
+notebook(s), train its model(s), run its app, and render its report.
 
-```bash
-pip install kaggle
-kaggle competitions download -c playground-series-s4e6 -p data/raw
-unzip -o data/raw/playground-series-s4e6.zip -d data/raw
-```
+## Repository layout
 
-Launch the application:
-
-```bash
-python -m streamlit run app/streamlit_app.py
-```
-
-Open <http://localhost:8501>.
-
-## Repository policy
-
-Raw Kaggle data, virtual environments, caches, generated submissions, local
-secrets, and report build output are excluded from Git. The small trained
-`projects/academic_success/models/model.joblib` artifact is intentionally
-included because the hosted Streamlit application needs it for inference.
-
-Never commit a Kaggle token or `.streamlit/secrets.toml` file.
-
-## Complete manual
-
-See [Setup and Deployment](docs/SETUP_AND_DEPLOYMENT.md) for:
-
-- macOS, Linux, and Windows setup;
-- downloading data and training the model;
-- running the notebook, tests, Streamlit app, and Docker image;
-- publishing the repository to GitHub;
-- deploying the app to Streamlit Community Cloud; and
-- publishing the Quarto report with GitHub Pages.
-
-## Project structure
-
-```text
-projects/academic_success/
-├── app/                    # Streamlit application
-├── data/                   # local Kaggle data (ignored)
-├── models/model.joblib     # deployable trained model
-├── notebooks/              # exploratory analysis and modeling
-├── report/                 # Quarto research report
-├── scripts/                # training and submission commands
-├── src/academic_success/   # shared data/features/model package
-└── tests/                  # automated tests
-```
+Each project is deployed from a separate GitHub repository. A local portfolio
+workspace may place their checkouts under `projects/`, but they do not share
+Git history, dependencies, CI, GitHub Pages, or Streamlit configuration.
