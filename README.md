@@ -47,3 +47,17 @@ notebook(s), train its model(s), run its app, and render its report.
 Each project is deployed from a separate GitHub repository. A local portfolio
 workspace may place their checkouts under `projects/`, but they do not share
 Git history, dependencies, CI, GitHub Pages, or Streamlit configuration.
+
+## Replicate a project
+
+The repository includes a helper that copies any compatible project to the
+`TranNguyenVu-code` account without importing the source Git history, then
+enables and verifies its GitHub Pages workflow:
+
+```bash
+scripts/replicate_repo.sh nhamhung/energy-demand-forecasting
+```
+
+The first run creates a public repository and one fresh import commit. Use
+`--update` on later runs to publish a new snapshot commit without importing
+the source repository's history. Run the script with `--help` for all options.
