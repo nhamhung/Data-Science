@@ -203,7 +203,7 @@ done
 [[ -n "$RUN_ID" ]] || die "Could not find the dispatched Pages workflow run"
 
 printf 'Waiting for GitHub Pages deployment (run %s)...\n' "$RUN_ID"
-gh run watch "$RUN_ID" --repo "$DEST_REPO" --compact --exit-status
+gh run watch "$RUN_ID" --repo "$DEST_REPO" --exit-status
 
 PAGES_URL="$(gh api "repos/${DEST_REPO}/pages" --jq .html_url)"
 
