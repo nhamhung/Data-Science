@@ -15,3 +15,6 @@
 # Each project is an independent Git repository. Keep local checkouts outside
 # the portfolio index so they cannot be accidentally committed here.
 /projects/
+
+# Local working copies created by scripts/replicate_repo.sh
+/replicas/
