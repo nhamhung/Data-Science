@@ -1,10 +1,11 @@
 # Data Science Portfolio
 
-Five worked, end-to-end data science projects, each built around a real
+Eight worked, end-to-end data science projects, each built around a real
 public dataset/competition and designed for people who've completed the
 relevant Kaggle Learn microcourses — one project per major skill area
 (tabular ML, NLP, time-series forecasting, recommendation, real-world
-traffic safety). The recommendation project itself covers both major
+traffic safety, leaderboard-driven tabular regression, and satellite-radar
+flood analytics). The recommendation project itself covers both major
 techniques — content-based and collaborative filtering — built and
 compared head to head in one place.
 
@@ -22,11 +23,14 @@ top-level structure.
 | [Energy Demand Forecasting](https://github.com/nhamhhung/energy-demand-forecasting) | Forecast hourly electricity demand, including recursive multi-step forecasting | [Report](https://nhamhhung.github.io/energy-demand-forecasting/) | [App](https://energy-demand-forecasting.streamlit.app) |
 | [Recommendation Showcase](https://github.com/nhamhhung/recommendation-showcase) | Compare content-based and collaborative-filtering music recommendations | [Report](https://nhamhhung.github.io/recommendation-showcase/) | [App](https://recommendation-showcase.streamlit.app) |
 | [Traffic Accident Severity](https://github.com/nhamhhung/traffic-accident-severity) | Predict severe vs. non-severe accidents from Addis Ababa police records | [Report](https://nhamhhung.github.io/traffic-accident-severity/) | [App](https://traffic-accident-severity.streamlit.app) |
+| [Flood Prediction](https://github.com/nhamhhung/flood-prediction) | Predict flood probability from 20 risk factors (tabular regression) — Kaggle Playground Series S4E5; would have ranked #207 of 2,794 | [Report](https://nhamhhung.github.io/flood-prediction/) | [App](https://flood-prediction.streamlit.app) |
+| [Flood Radar Analytics](https://github.com/nhamhhung/flood-radar-analytics) | Map floodwater from Sentinel-1 radar and test whether five methods transfer to an unseen flood (11 floods, Sen1Floods11) | [Report](https://nhamhhung.github.io/flood-radar-analytics/) | [App](https://flood-radar-analytics.streamlit.app) |
+| [Soccer xG](https://github.com/nhamhhung/soccer-xg) | Build an expected-goals model from 100,864 StatsBomb shots, on par with StatsBomb's own xG, and test whether finishing is a skill; click-to-place shot simulator | [Report](https://nhamhhung.github.io/soccer-xg/) | [App](https://soccer-xg.streamlit.app) |
 
 ## Working on a project
 
 See [`DEVELOPER_GUIDE.md`](DEVELOPER_GUIDE.md) for how to clone any one of
-the five independent repositories and edit its model code, notebook, or report.
+the eight independent repositories and edit its model code, notebook, or report.
 
 Each repository has its own `README.md` with full setup and fork-deployment
 instructions. In general:

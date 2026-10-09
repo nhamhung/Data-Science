@@ -1,6 +1,6 @@
 # Developer Guide
 
-This guide is for anyone who clones one of the portfolio's five independent
+This guide is for anyone who clones one of the portfolio's eight independent
 repositories to run, edit, or extend it locally — a teammate, a reviewer, or
 future-you on a different machine. Each repository is fully self-contained
 (its own venv, data, model, notebook, app, report, CI, and deployment).
@@ -45,8 +45,8 @@ and clone your fork. Its `docs/SETUP_AND_DEPLOYMENT.md` explains how to
 enable GitHub Pages and create a separate Streamlit Community Cloud app.
 
 Repository names use hyphens: `academic-success`, `disaster-tweets-nlp`,
-`energy-demand-forecasting`, `recommendation-showcase`, and
-`traffic-accident-severity`. The recommendation repository has two
+`energy-demand-forecasting`, `flood-prediction`, `flood-radar-analytics`,
+`recommendation-showcase`, `soccer-xg`, and `traffic-accident-severity`. The recommendation repository has two
 sub-packages, `content_based` and `collaborative`, sharing one app.
 
 Everything below assumes your shell is inside the cloned project repository.
