@@ -1,6 +1,6 @@
 # Developer Guide
 
-This guide is for anyone who clones one of the portfolio's eight independent
+This guide is for anyone who clones one of the portfolio's nine independent
 repositories to run, edit, or extend it locally — a teammate, a reviewer, or
 future-you on a different machine. Each repository is fully self-contained
 (its own venv, data, model, notebook, app, report, CI, and deployment).
