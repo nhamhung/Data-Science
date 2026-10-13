@@ -36,7 +36,7 @@ Choose the project repository from the portfolio table in
 [`README.md`](README.md), then clone it directly. For example:
 
 ```bash
-git clone https://github.com/nhamhhung/traffic-accident-severity.git
+git clone https://github.com/nhamhung/traffic-accident-severity.git
 cd traffic-accident-severity
 ```
 

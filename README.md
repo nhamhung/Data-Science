@@ -13,16 +13,16 @@ sharing nothing with the others except this top-level index.
 
 | Project | Problem | Report | Streamlit |
 |---|---|---|---|
-| [Academic Success](https://github.com/nhamhhung/academic-success) | Predict student Dropout/Enrolled/Graduate outcomes (tabular classification) — Kaggle Playground Series S4E6 | [Report](https://nhamhhung.github.io/academic-success/) | [App](https://academic-success.streamlit.app) |
-| [Disaster Tweets NLP](https://github.com/nhamhhung/disaster-tweets-nlp) | Classify whether a tweet describes a real disaster (NLP / text classification) | [Report](https://nhamhhung.github.io/disaster-tweets-nlp/) | [App](https://disaster-tweets-nlp.streamlit.app) |
-| [Energy Demand Forecasting](https://github.com/nhamhhung/energy-demand-forecasting) | Forecast hourly electricity demand, including recursive multi-step forecasting | [Report](https://nhamhhung.github.io/energy-demand-forecasting/) | [App](https://energy-demand-forecasting.streamlit.app) |
-| [Recommendation Showcase](https://github.com/nhamhhung/recommendation-showcase) | Compare content-based and collaborative-filtering music recommendations | [Report](https://nhamhhung.github.io/recommendation-showcase/) | [App](https://recommendation-showcase.streamlit.app) |
-| [Traffic Accident Severity](https://github.com/nhamhhung/traffic-accident-severity) | Predict severe vs. non-severe accidents from Addis Ababa police records | [Report](https://nhamhhung.github.io/traffic-accident-severity/) | [App](https://traffic-accident-severity.streamlit.app) |
-| [Flood Prediction](https://github.com/nhamhhung/flood-prediction) | Predict flood probability from 20 risk factors (tabular regression) — Kaggle Playground Series S4E5; would have ranked #207 of 2,794 | [Report](https://nhamhhung.github.io/flood-prediction/) | [App](https://flood-prediction-4jmtseye8jj6sppf8uqzwu.streamlit.app/) |
-| [Flood Radar Analytics](https://github.com/nhamhhung/flood-radar-analytics) | Map floodwater from Sentinel-1 radar and test whether five methods transfer to an unseen flood (11 floods, Sen1Floods11) | [Report](https://nhamhhung.github.io/flood-radar-analytics/) | [App](https://flood-radar-analytics-bg6uugifczndcbtsrps6cd.streamlit.app/) |
-| [Soccer xG](https://github.com/nhamhhung/soccer-xg) | Build an expected-goals model from 100,864 StatsBomb shots, on par with StatsBomb's own xG, and test whether finishing is a skill; click-to-place shot simulator | [Report](https://nhamhhung.github.io/soccer-xg/) | [App](https://soccer-xg-cyrb3mjzcfkscvijj5bb8d.streamlit.app/) |
-| [Thin Film Growth](https://github.com/nhamhhung/thin-film-growth) | Simulate thin-film deposition, surface relaxation, temperature-dependent hopping, and trench filling with reproducible Monte Carlo models | [Report](https://nhamhhung.github.io/thin-film-growth/) | [Deploy app](https://share.streamlit.io/) |
-| [Forest Fire Spread](https://github.com/nhamhhung/forest-fire-spread) | Model wildfire tipping points, drought, wind, ember spotting and fuel-management strategies, then compare the simulation with 25 years of NASA and NOAA data | [Report](https://nhamhhung.github.io/forest-fire-spread/) | [Deploy app](https://share.streamlit.io/) |
+| [Academic Success](https://github.com/nhamhung/academic-success) | Predict student Dropout/Enrolled/Graduate outcomes (tabular classification) — Kaggle Playground Series S4E6 | [Report](https://nhamhung.github.io/academic-success/) | [App](https://academic-success.streamlit.app) |
+| [Disaster Tweets NLP](https://github.com/nhamhung/disaster-tweets-nlp) | Classify whether a tweet describes a real disaster (NLP / text classification) | [Report](https://nhamhung.github.io/disaster-tweets-nlp/) | [App](https://disaster-tweets-nlp.streamlit.app) |
+| [Energy Demand Forecasting](https://github.com/nhamhung/energy-demand-forecasting) | Forecast hourly electricity demand, including recursive multi-step forecasting | [Report](https://nhamhung.github.io/energy-demand-forecasting/) | [App](https://energy-demand-forecasting.streamlit.app) |
+| [Recommendation Showcase](https://github.com/nhamhung/recommendation-showcase) | Compare content-based and collaborative-filtering music recommendations | [Report](https://nhamhung.github.io/recommendation-showcase/) | [App](https://recommendation-showcase.streamlit.app) |
+| [Traffic Accident Severity](https://github.com/nhamhung/traffic-accident-severity) | Predict severe vs. non-severe accidents from Addis Ababa police records | [Report](https://nhamhung.github.io/traffic-accident-severity/) | [App](https://traffic-accident-severity.streamlit.app) |
+| [Flood Prediction](https://github.com/nhamhung/flood-prediction) | Predict flood probability from 20 risk factors (tabular regression) — Kaggle Playground Series S4E5; would have ranked #207 of 2,794 | [Report](https://nhamhung.github.io/flood-prediction/) | [App](https://flood-prediction-4jmtseye8jj6sppf8uqzwu.streamlit.app/) |
+| [Flood Radar Analytics](https://github.com/nhamhung/flood-radar-analytics) | Map floodwater from Sentinel-1 radar and test whether five methods transfer to an unseen flood (11 floods, Sen1Floods11) | [Report](https://nhamhung.github.io/flood-radar-analytics/) | [App](https://flood-radar-analytics-bg6uugifczndcbtsrps6cd.streamlit.app/) |
+| [Soccer xG](https://github.com/nhamhung/soccer-xg) | Build an expected-goals model from 100,864 StatsBomb shots, on par with StatsBomb's own xG, and test whether finishing is a skill; click-to-place shot simulator | [Report](https://nhamhung.github.io/soccer-xg/) | [App](https://soccer-xg-cyrb3mjzcfkscvijj5bb8d.streamlit.app/) |
+| [Thin Film Growth](https://github.com/nhamhung/thin-film-growth) | Simulate thin-film deposition, surface relaxation, temperature-dependent hopping, and trench filling with reproducible Monte Carlo models | [Report](https://nhamhung.github.io/thin-film-growth/) | [Deploy app](https://share.streamlit.io/) |
+| [Forest Fire Spread](https://github.com/nhamhung/forest-fire-spread) | Model wildfire tipping points, drought, wind, ember spotting and fuel-management strategies, then compare the simulation with 25 years of NASA and NOAA data | [Report](https://nhamhung.github.io/forest-fire-spread/) | [Deploy app](https://share.streamlit.io/) |
 
 ## Working on a project
 
@@ -33,7 +33,7 @@ Each repository has its own `README.md` with full setup and fork-deployment
 instructions. In general:
 
 ```bash
-git clone https://github.com/nhamhhung/<project-name>.git
+git clone https://github.com/nhamhung/<project-name>.git
 cd <project-name>
 python3.12 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
